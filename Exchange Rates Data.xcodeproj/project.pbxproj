@@ -8,6 +8,13 @@
 
 /* Begin PBXBuildFile section */
 		856DF04B29CDC525008F5E19 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 856DF04A29CDC525008F5E19 /* main.swift */; };
+		856DF05229CDC84B008F5E19 /* ExchangeRatesDataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 856DF05129CDC84B008F5E19 /* ExchangeRatesDataService.swift */; };
+		856DF05429CDC855008F5E19 /* ExchangeRatesDataServiceProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 856DF05329CDC855008F5E19 /* ExchangeRatesDataServiceProtocol.swift */; };
+		856DF05729CDC867008F5E19 /* ExchangeRatesError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 856DF05629CDC867008F5E19 /* ExchangeRatesError.swift */; };
+		856DF05A29CDC887008F5E19 /* ExchangeRatesDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 856DF05929CDC887008F5E19 /* ExchangeRatesDataModel.swift */; };
+		856DF05C29CDC89D008F5E19 /* URLRequestBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 856DF05B29CDC89D008F5E19 /* URLRequestBuilder.swift */; };
+		85EC7BB529CDC9B90024C1EC /* InteractorInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85EC7BB429CDC9B90024C1EC /* InteractorInput.swift */; };
+		85EC7BB929CDC9E00024C1EC /* Interactor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85EC7BB829CDC9E00024C1EC /* Interactor.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -25,6 +32,13 @@
 /* Begin PBXFileReference section */
 		856DF04829CDC525008F5E19 /* Main */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = Main; sourceTree = BUILT_PRODUCTS_DIR; };
 		856DF04A29CDC525008F5E19 /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
+		856DF05129CDC84B008F5E19 /* ExchangeRatesDataService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExchangeRatesDataService.swift; sourceTree = "<group>"; };
+		856DF05329CDC855008F5E19 /* ExchangeRatesDataServiceProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExchangeRatesDataServiceProtocol.swift; sourceTree = "<group>"; };
+		856DF05629CDC867008F5E19 /* ExchangeRatesError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExchangeRatesError.swift; sourceTree = "<group>"; };
+		856DF05929CDC887008F5E19 /* ExchangeRatesDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExchangeRatesDataModel.swift; sourceTree = "<group>"; };
+		856DF05B29CDC89D008F5E19 /* URLRequestBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLRequestBuilder.swift; sourceTree = "<group>"; };
+		85EC7BB429CDC9B90024C1EC /* InteractorInput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InteractorInput.swift; sourceTree = "<group>"; };
+		85EC7BB829CDC9E00024C1EC /* Interactor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Interactor.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -41,6 +55,7 @@
 		856DF03129CDC3EF008F5E19 = {
 			isa = PBXGroup;
 			children = (
+				85EC7BBA29CDCAA80024C1EC /* Service */,
 				856DF04929CDC525008F5E19 /* Main */,
 				856DF03D29CDC42A008F5E19 /* Products */,
 			);
@@ -58,8 +73,38 @@
 			isa = PBXGroup;
 			children = (
 				856DF04A29CDC525008F5E19 /* main.swift */,
+				85EC7BB829CDC9E00024C1EC /* Interactor.swift */,
+				85EC7BB429CDC9B90024C1EC /* InteractorInput.swift */,
 			);
 			path = Main;
+			sourceTree = "<group>";
+		};
+		856DF05029CDC7C3008F5E19 /* ExchangeRatesDataService */ = {
+			isa = PBXGroup;
+			children = (
+				856DF05829CDC87E008F5E19 /* Models */,
+				856DF05129CDC84B008F5E19 /* ExchangeRatesDataService.swift */,
+				856DF05329CDC855008F5E19 /* ExchangeRatesDataServiceProtocol.swift */,
+				856DF05629CDC867008F5E19 /* ExchangeRatesError.swift */,
+			);
+			path = ExchangeRatesDataService;
+			sourceTree = "<group>";
+		};
+		856DF05829CDC87E008F5E19 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				856DF05929CDC887008F5E19 /* ExchangeRatesDataModel.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		85EC7BBA29CDCAA80024C1EC /* Service */ = {
+			isa = PBXGroup;
+			children = (
+				856DF05B29CDC89D008F5E19 /* URLRequestBuilder.swift */,
+				856DF05029CDC7C3008F5E19 /* ExchangeRatesDataService */,
+			);
+			path = Service;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -120,7 +165,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				856DF05429CDC855008F5E19 /* ExchangeRatesDataServiceProtocol.swift in Sources */,
+				85EC7BB529CDC9B90024C1EC /* InteractorInput.swift in Sources */,
+				856DF05229CDC84B008F5E19 /* ExchangeRatesDataService.swift in Sources */,
 				856DF04B29CDC525008F5E19 /* main.swift in Sources */,
+				856DF05A29CDC887008F5E19 /* ExchangeRatesDataModel.swift in Sources */,
+				856DF05729CDC867008F5E19 /* ExchangeRatesError.swift in Sources */,
+				85EC7BB929CDC9E00024C1EC /* Interactor.swift in Sources */,
+				856DF05C29CDC89D008F5E19 /* URLRequestBuilder.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
