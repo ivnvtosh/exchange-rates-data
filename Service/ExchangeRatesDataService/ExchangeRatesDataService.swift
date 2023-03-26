@@ -104,6 +104,8 @@ extension ExchangeRatesDataService: ExchangeRatesDataServiceProtocol {
 			.set(headers: ["apikey" : key])
 			.set(parameter: URLQueryItem(name: "symbols", value: currencies))
 			.set(parameter: URLQueryItem(name: "base", value: baseCurrency))
+			.set(cachePolicy: .returnCacheDataElseLoad)
+			.set(timeoutInterval: 15.0)
 			.build()
 		
 		return try await getModel(with: request)

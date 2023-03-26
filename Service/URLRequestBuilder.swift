@@ -7,7 +7,7 @@
 
 import Foundation
 
-class URLRequestBuilder {
+final class URLRequestBuilder {
 	
 	let base: String
 	
@@ -18,6 +18,10 @@ class URLRequestBuilder {
 	var headers = [String: Any]()
 	
 	var parameters = [URLQueryItem]()
+	
+	var cachePolicy = URLRequest.CachePolicy.useProtocolCachePolicy
+	
+	var timeoutInterval: TimeInterval = 60.0
 	
 	enum HTTPMethod: String {
 		
@@ -49,6 +53,7 @@ class URLRequestBuilder {
 	func set(headers: [String: Any]) -> Self {
 		
 		self.headers = headers
+		
 		return self
 	}
 	
@@ -56,6 +61,22 @@ class URLRequestBuilder {
 	func set(parameter: URLQueryItem) -> Self {
 		
 		parameters.append(parameter)
+		
+		return self
+	}
+	
+	@discardableResult
+	func set(cachePolicy: URLRequest.CachePolicy) -> Self {
+		
+		self.cachePolicy = cachePolicy
+		
+		return self
+	}
+	
+	@discardableResult
+	func set(timeoutInterval: TimeInterval) -> Self {
+		
+		self.timeoutInterval = timeoutInterval
 		
 		return self
 	}
@@ -73,8 +94,8 @@ class URLRequestBuilder {
 		}
 		
 		var request = URLRequest(url: url,
-								 cachePolicy: .returnCacheDataElseLoad,
-								 timeoutInterval: 10)
+								 cachePolicy: cachePolicy,
+								 timeoutInterval: timeoutInterval)
 		
 		request.httpMethod = method.rawValue
 		
