@@ -14,26 +14,11 @@ if let key = try? String(contentsOfFile: path) {
 	let exchangeRatesDataService = ExchangeRatesDataService(key: key)
 	let interactor = Interactor(exchangeRatesDataService: exchangeRatesDataService)
 	
-	let semaphore = DispatchSemaphore(value: 0)
+	let presenter = Presenter(interactor: interactor)
 	
-	Task {
-		
-		do {
-			
-			let rates = try await interactor.load(currencies: "RUB, EUR, BDT", baseCurrency: "USD")
-			
-			print(rates)
-			semaphore.signal()
-		}
-		
-		catch {
-			
-			print(error)
-			semaphore.signal()
-		}
-	}
+	presenter.didLoad()
 	
-	semaphore.wait()
+	RunLoop.main.run()
 }
 
 else {
