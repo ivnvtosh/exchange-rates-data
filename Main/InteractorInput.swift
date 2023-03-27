@@ -9,5 +9,5 @@ import Foundation
 
 protocol InteractorInput {
 	
-	func load(currencies: String, baseCurrency: String) async throws -> [String : Double]
+	func load(currencies: String, base currency: String) async throws -> [String : Double]
 }

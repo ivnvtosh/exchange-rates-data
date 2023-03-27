@@ -33,8 +33,8 @@ final class Presenter {
 			
 			do {
 				
-				let rates = try await interactor.load(currencies: "RUB, EUR, BDT",
-													  baseCurrency: "USD")
+				let rates = try await interactor.load(currencies: "RUB, EUR, BDT", base: "USD")
+				
 				if isCurrencyTracked == false {
 					
 					startCurrencyTracked()

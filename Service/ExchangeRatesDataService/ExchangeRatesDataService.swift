@@ -7,11 +7,6 @@
 
 import Foundation
 
-/// With over 15 exchange rate data sources, the Exchangerates API is delivering exchanging rates data for more than
-/// 170 world currencies.This API has several endpoints, where each of them serves a different purpose, use case.
-/// The endpoints include functionalities like receiving the latest exchange rates information for a specific set,or for
-/// all currencies; conversion from one to another currency; receiving data Time-series for multiple or for one currency,
-/// and preserving the API daily for the fluctuation data.
 class ExchangeRatesDataService {
 	
 	let key: String
@@ -87,23 +82,23 @@ class ExchangeRatesDataService {
 		
 		catch {
 			
-			let message = String(data: data, encoding: .utf8) ?? "Unknown encoding"
+			let body = String(data: data, encoding: .utf8) ?? "Unknown encoding"
 			
-			throw ExchangeRatesError.failedToDecode(message)
+			throw ExchangeRatesError.failedToDecode(body)
 		}
 	}
 }
 
 extension ExchangeRatesDataService: ExchangeRatesDataServiceProtocol {
 	
-	func get(latest currencies: String, baseCurrency: String) async throws -> ExchangeRatesDataModel {
+	func get(latest currencies: String, base: String) async throws -> ExchangeRatesDataModel {
 		
 		let request = try URLRequestBuilder(base: "https://api.apilayer.com")
 			.set(path: "/exchangerates_data/latest")
 			.set(method: .get)
 			.set(headers: ["apikey" : key])
 			.set(parameter: URLQueryItem(name: "symbols", value: currencies))
-			.set(parameter: URLQueryItem(name: "base", value: baseCurrency))
+			.set(parameter: URLQueryItem(name: "base", value: base))
 			.set(cachePolicy: .returnCacheDataElseLoad)
 			.set(timeoutInterval: 15.0)
 			.build()
