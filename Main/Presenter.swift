@@ -11,6 +11,10 @@ final class Presenter {
 	
 	let interactor: Interactor
 	
+	var trackedCurrencies = "RUB, EUR, BDT"
+	
+	var baseCurrency = "USD"
+	
 	var timer: Timer?
 	
 	var timeInterval = 10.0
@@ -33,7 +37,7 @@ final class Presenter {
 			
 			do {
 				
-				let rates = try await interactor.load(currencies: "RUB, EUR, BDT", base: "USD")
+				let rates = try await interactor.load(latest: trackedCurrencies, to: baseCurrency)
 				
 				if isCurrencyTracked == false {
 					

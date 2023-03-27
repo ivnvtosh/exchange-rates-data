@@ -19,9 +19,9 @@ class Interactor {
 
 extension Interactor: InteractorInput {
 	
-	func load(currencies: String, base currency: String) async throws -> [String : Double] {
+	func load(latest currencies: String, to сurrency: String) async throws -> [String : Double] {
 		
-		let model = try await exchangeRatesDataService.get(latest: currencies, base: currency)
+		let model = try await exchangeRatesDataService.get(latest: currencies, base: сurrency)
 		
 		guard model.isSuccess else {
 			
